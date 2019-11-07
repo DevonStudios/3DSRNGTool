@@ -5155,6 +5155,7 @@
             // 
             // patternCheckBox
             // 
+            this.patternCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.patternCheckBox.AutoSize = true;
             this.patternCheckBox.Location = new System.Drawing.Point(607, 9);
             this.patternCheckBox.Name = "patternCheckBox";
