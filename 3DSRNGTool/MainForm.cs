@@ -690,6 +690,16 @@ namespace Pk3DSRNGTool
 
         private void GameVersion_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Gameversion.SelectedIndex == 0 || Gameversion.SelectedIndex == 1 ||
+                      Gameversion.SelectedIndex == 2 || Gameversion.SelectedIndex == 3)
+            {
+                seedsearchCheckBox.Visible = true;
+            }
+            else
+            {
+                seedsearchCheckBox.Visible = false;
+            }
+            seedsearchCheckBox.Checked = false;
             Properties.Settings.Default.GameVersion = (byte)Gameversion.SelectedIndex;
             miscrngtool.UpdateInfo(updategame: !Initializing);
             L_GenderList.Visible = GenderList.Visible = IsTransporter;
@@ -1993,5 +2003,19 @@ namespace Pk3DSRNGTool
         private void MiscRNGTool_Click(object sender, EventArgs e)
             => miscrngtool.Show();
         #endregion
+
+        private void seedsearchCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (seedsearchCheckBox.Checked == true)
+            {
+                patternLabel.Visible = Pattern.Visible = true;
+                maxseedsLabel.Visible = MaxSeeds.Visible = true;
+            }
+            else
+            {
+                patternLabel.Visible = Pattern.Visible = false;
+                maxseedsLabel.Visible = MaxSeeds.Visible = false;
+            }
+        }
     }
 }
