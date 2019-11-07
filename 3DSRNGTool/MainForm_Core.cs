@@ -39,8 +39,8 @@ namespace Pk3DSRNGTool
             {
                 var rng = new MersenneTwister(Seed.Value);
                 string seedpattern = Seed.Value.ToString().Substring(Seed.Value.ToString().Length - 2, 2);
-                if (seedpattern == Pattern.Text.Substring(0, 2) || seedpattern == Pattern.Text.Substring(3, 2)
-                    || seedpattern == Pattern.Text.Substring(5, 2))
+                if (patternCheckBox.Checked == false || (seedpattern == Pattern.Text.Substring(0, 2) || seedpattern == Pattern.Text.Substring(3, 2)
+                    || seedpattern == Pattern.Text.Substring(5, 2)))
                 {
                     patternmatch = true;
                 }

@@ -2008,13 +2008,25 @@ namespace Pk3DSRNGTool
         {
             if (seedsearchCheckBox.Checked == true)
             {
-                patternLabel.Visible = Pattern.Visible = true;
+                patternCheckBox.Visible = Pattern.Visible = true;
                 maxseedsLabel.Visible = MaxSeeds.Visible = true;
             }
             else
             {
-                patternLabel.Visible = Pattern.Visible = false;
+                patternCheckBox.Visible = Pattern.Visible = false;
                 maxseedsLabel.Visible = MaxSeeds.Visible = false;
+            }
+        }
+
+        private void patternCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (patternCheckBox.Checked == true)
+            {
+                Pattern.Enabled = true;
+            }
+            else
+            {
+                Pattern.Enabled = false;
             }
         }
     }
