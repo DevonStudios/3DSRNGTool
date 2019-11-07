@@ -5095,6 +5095,7 @@
             // 
             // patternLabel
             // 
+            this.patternLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.patternLabel.AutoSize = true;
             this.patternLabel.Location = new System.Drawing.Point(607, 9);
             this.patternLabel.Name = "patternLabel";
@@ -5105,6 +5106,7 @@
             // 
             // Pattern
             // 
+            this.Pattern.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Pattern.Location = new System.Drawing.Point(667, 6);
             this.Pattern.Mask = "99-99-99";
             this.Pattern.Name = "Pattern";
@@ -5115,6 +5117,7 @@
             // 
             // maxseedsLabel
             // 
+            this.maxseedsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxseedsLabel.AutoSize = true;
             this.maxseedsLabel.Location = new System.Drawing.Point(607, 35);
             this.maxseedsLabel.Name = "maxseedsLabel";
@@ -5125,6 +5128,7 @@
             // 
             // seedsearchCheckBox
             // 
+            this.seedsearchCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.seedsearchCheckBox.AutoSize = true;
             this.seedsearchCheckBox.Location = new System.Drawing.Point(758, 40);
             this.seedsearchCheckBox.Name = "seedsearchCheckBox";
@@ -5136,6 +5140,7 @@
             // 
             // MaxSeeds
             // 
+            this.MaxSeeds.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MaxSeeds.Location = new System.Drawing.Point(667, 32);
             this.MaxSeeds.Mask = "9999999";
             this.MaxSeeds.Name = "MaxSeeds";
