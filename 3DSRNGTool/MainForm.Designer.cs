@@ -432,12 +432,10 @@
             this.CB_Profile = new System.Windows.Forms.ComboBox();
             this.L_Profile = new System.Windows.Forms.Label();
             this.B_AddProfile = new System.Windows.Forms.Button();
-            this.Pattern = new System.Windows.Forms.MaskedTextBox();
             this.maxseedsLabel = new System.Windows.Forms.Label();
             this.seedsearchCheckBox = new System.Windows.Forms.CheckBox();
             this.MaxSeeds = new System.Windows.Forms.MaskedTextBox();
             this.Seed = new Pk3DSRNGTool.Controls.HexMaskedTextBox();
-            this.patternCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.TSV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.DGVMS.SuspendLayout();
@@ -5093,23 +5091,11 @@
             this.B_AddProfile.UseVisualStyleBackColor = true;
             this.B_AddProfile.Click += new System.EventHandler(this.B_AddProfile_Click);
             // 
-            // Pattern
-            // 
-            this.Pattern.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Pattern.Enabled = false;
-            this.Pattern.Location = new System.Drawing.Point(667, 6);
-            this.Pattern.Mask = "99-99-99";
-            this.Pattern.Name = "Pattern";
-            this.Pattern.Size = new System.Drawing.Size(55, 20);
-            this.Pattern.TabIndex = 0;
-            this.Pattern.Text = "000000";
-            this.Pattern.Visible = false;
-            // 
             // maxseedsLabel
             // 
             this.maxseedsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxseedsLabel.AutoSize = true;
-            this.maxseedsLabel.Location = new System.Drawing.Point(607, 35);
+            this.maxseedsLabel.Location = new System.Drawing.Point(606, 17);
             this.maxseedsLabel.Name = "maxseedsLabel";
             this.maxseedsLabel.Size = new System.Drawing.Size(60, 13);
             this.maxseedsLabel.TabIndex = 100;
@@ -5131,7 +5117,7 @@
             // MaxSeeds
             // 
             this.MaxSeeds.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MaxSeeds.Location = new System.Drawing.Point(667, 32);
+            this.MaxSeeds.Location = new System.Drawing.Point(666, 12);
             this.MaxSeeds.Mask = "9999999";
             this.MaxSeeds.Name = "MaxSeeds";
             this.MaxSeeds.Size = new System.Drawing.Size(55, 20);
@@ -5153,29 +5139,14 @@
             this.Seed.Value = ((uint)(0u));
             this.Seed.TextChanged += new System.EventHandler(this.Seed_ValueChanged);
             // 
-            // patternCheckBox
-            // 
-            this.patternCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.patternCheckBox.AutoSize = true;
-            this.patternCheckBox.Location = new System.Drawing.Point(607, 9);
-            this.patternCheckBox.Name = "patternCheckBox";
-            this.patternCheckBox.Size = new System.Drawing.Size(60, 17);
-            this.patternCheckBox.TabIndex = 103;
-            this.patternCheckBox.Text = "Pattern";
-            this.patternCheckBox.UseVisualStyleBackColor = true;
-            this.patternCheckBox.Visible = false;
-            this.patternCheckBox.CheckedChanged += new System.EventHandler(this.patternCheckBox_CheckedChanged);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 625);
-            this.Controls.Add(this.patternCheckBox);
             this.Controls.Add(this.MaxSeeds);
             this.Controls.Add(this.seedsearchCheckBox);
             this.Controls.Add(this.maxseedsLabel);
-            this.Controls.Add(this.Pattern);
             this.Controls.Add(this.B_AddProfile);
             this.Controls.Add(this.CB_Profile);
             this.Controls.Add(this.MS_Toolkit);
@@ -5707,11 +5678,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv_state;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv_time;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv_tinystate;
-        private System.Windows.Forms.MaskedTextBox Pattern;
         private System.Windows.Forms.Label maxseedsLabel;
         private System.Windows.Forms.CheckBox seedsearchCheckBox;
         private System.Windows.Forms.MaskedTextBox MaxSeeds;
-        private System.Windows.Forms.CheckBox patternCheckBox;
     }
 }
 

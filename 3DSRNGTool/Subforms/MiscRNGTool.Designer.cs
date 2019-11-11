@@ -47,7 +47,6 @@
             this.NPC = new System.Windows.Forms.NumericUpDown();
             this.StartingFrame = new System.Windows.Forms.NumericUpDown();
             this.L_StartingFrame = new System.Windows.Forms.Label();
-            this.Seed = new Pk3DSRNGTool.Controls.HexMaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.L_RNG = new System.Windows.Forms.Label();
             this.RNG = new System.Windows.Forms.ComboBox();
@@ -76,7 +75,6 @@
             this.RB_Random = new System.Windows.Forms.RadioButton();
             this.RB_Pokerus = new System.Windows.Forms.RadioButton();
             this.L_CurrentSeed = new System.Windows.Forms.Label();
-            this.CurrentText = new System.Windows.Forms.TextBox();
             this.B_Calc = new System.Windows.Forms.Button();
             this.Filters = new System.Windows.Forms.TabControl();
             this.TP_Timeline = new System.Windows.Forms.TabPage();
@@ -87,6 +85,9 @@
             this.Fidget = new System.Windows.Forms.CheckBox();
             this.JumpFrame = new System.Windows.Forms.NumericUpDown();
             this.TP_Misc = new System.Windows.Forms.TabPage();
+            this.L_TargetSeed = new System.Windows.Forms.Label();
+            this.RB_SavePar = new System.Windows.Forms.RadioButton();
+            this.L_BaseTime = new System.Windows.Forms.Label();
             this.TP_Capture = new System.Windows.Forms.TabPage();
             this.OPower = new System.Windows.Forms.ComboBox();
             this.RotoCatch = new System.Windows.Forms.CheckBox();
@@ -139,7 +140,10 @@
             this.Sync = new System.Windows.Forms.CheckBox();
             this.L_Slot = new System.Windows.Forms.Label();
             this.HA = new System.Windows.Forms.CheckBox();
+            this.BaseTimeText = new Pk3DSRNGTool.Controls.HexMaskedTextBox();
+            this.CurrentText = new Pk3DSRNGTool.Controls.HexMaskedTextBox();
             this.Slot = new Pk3DSRNGTool.Controls.CheckBoxComboBox();
+            this.Seed = new Pk3DSRNGTool.Controls.HexMaskedTextBox();
             this.RNGInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Delay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxResults)).BeginInit();
@@ -264,18 +268,6 @@
             this.L_StartingFrame.Size = new System.Drawing.Size(75, 13);
             this.L_StartingFrame.TabIndex = 3;
             this.L_StartingFrame.Text = "Starting Frame";
-            // 
-            // Seed
-            // 
-            this.Seed.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Seed.Location = new System.Drawing.Point(127, 66);
-            this.Seed.Mask = "AAAAAAAA";
-            this.Seed.Name = "Seed";
-            this.Seed.Size = new System.Drawing.Size(67, 23);
-            this.Seed.TabIndex = 1;
-            this.Seed.Text = "00000000";
-            this.Seed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.Seed.Value = ((uint)(0u));
             // 
             // label2
             // 
@@ -528,7 +520,7 @@
             // Range
             // 
             this.Range.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Range.Location = new System.Drawing.Point(92, 58);
+            this.Range.Location = new System.Drawing.Point(92, 75);
             this.Range.Name = "Range";
             this.Range.Size = new System.Drawing.Size(71, 22);
             this.Range.TabIndex = 57;
@@ -541,7 +533,7 @@
             // Value
             // 
             this.Value.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Value.Location = new System.Drawing.Point(92, 90);
+            this.Value.Location = new System.Drawing.Point(92, 107);
             this.Value.Name = "Value";
             this.Value.Size = new System.Drawing.Size(71, 22);
             this.Value.TabIndex = 52;
@@ -559,7 +551,7 @@
             "<",
             ">=",
             "="});
-            this.Compare.Location = new System.Drawing.Point(11, 89);
+            this.Compare.Location = new System.Drawing.Point(11, 106);
             this.Compare.Name = "Compare";
             this.Compare.Size = new System.Drawing.Size(54, 21);
             this.Compare.TabIndex = 54;
@@ -568,7 +560,7 @@
             // 
             this.RB_Random.AutoSize = true;
             this.RB_Random.Checked = true;
-            this.RB_Random.Location = new System.Drawing.Point(10, 58);
+            this.RB_Random.Location = new System.Drawing.Point(10, 75);
             this.RB_Random.Name = "RB_Random";
             this.RB_Random.Size = new System.Drawing.Size(76, 17);
             this.RB_Random.TabIndex = 56;
@@ -580,7 +572,7 @@
             // RB_Pokerus
             // 
             this.RB_Pokerus.AutoSize = true;
-            this.RB_Pokerus.Location = new System.Drawing.Point(11, 127);
+            this.RB_Pokerus.Location = new System.Drawing.Point(11, 144);
             this.RB_Pokerus.Name = "RB_Pokerus";
             this.RB_Pokerus.Size = new System.Drawing.Size(64, 17);
             this.RB_Pokerus.TabIndex = 55;
@@ -591,19 +583,11 @@
             // L_CurrentSeed
             // 
             this.L_CurrentSeed.AutoSize = true;
-            this.L_CurrentSeed.Location = new System.Drawing.Point(8, 23);
+            this.L_CurrentSeed.Location = new System.Drawing.Point(8, 12);
             this.L_CurrentSeed.Name = "L_CurrentSeed";
             this.L_CurrentSeed.Size = new System.Drawing.Size(41, 13);
             this.L_CurrentSeed.TabIndex = 52;
             this.L_CurrentSeed.Text = "Current";
-            // 
-            // CurrentText
-            // 
-            this.CurrentText.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CurrentText.Location = new System.Drawing.Point(92, 20);
-            this.CurrentText.Name = "CurrentText";
-            this.CurrentText.Size = new System.Drawing.Size(98, 22);
-            this.CurrentText.TabIndex = 54;
             // 
             // B_Calc
             // 
@@ -714,8 +698,12 @@
             // 
             // TP_Misc
             // 
-            this.TP_Misc.Controls.Add(this.B_ResetFrame);
+            this.TP_Misc.Controls.Add(this.BaseTimeText);
             this.TP_Misc.Controls.Add(this.CurrentText);
+            this.TP_Misc.Controls.Add(this.L_TargetSeed);
+            this.TP_Misc.Controls.Add(this.RB_SavePar);
+            this.TP_Misc.Controls.Add(this.L_BaseTime);
+            this.TP_Misc.Controls.Add(this.B_ResetFrame);
             this.TP_Misc.Controls.Add(this.Range);
             this.TP_Misc.Controls.Add(this.L_CurrentSeed);
             this.TP_Misc.Controls.Add(this.Value);
@@ -729,6 +717,37 @@
             this.TP_Misc.TabIndex = 0;
             this.TP_Misc.Text = "Misc";
             this.TP_Misc.UseVisualStyleBackColor = true;
+            // 
+            // L_TargetSeed
+            // 
+            this.L_TargetSeed.AutoSize = true;
+            this.L_TargetSeed.Location = new System.Drawing.Point(8, 12);
+            this.L_TargetSeed.Name = "L_TargetSeed";
+            this.L_TargetSeed.Size = new System.Drawing.Size(66, 13);
+            this.L_TargetSeed.TabIndex = 105;
+            this.L_TargetSeed.Text = "Target Seed";
+            this.L_TargetSeed.Visible = false;
+            // 
+            // RB_SavePar
+            // 
+            this.RB_SavePar.AutoSize = true;
+            this.RB_SavePar.Location = new System.Drawing.Point(92, 144);
+            this.RB_SavePar.Name = "RB_SavePar";
+            this.RB_SavePar.Size = new System.Drawing.Size(72, 17);
+            this.RB_SavePar.TabIndex = 104;
+            this.RB_SavePar.Text = "Save Par.";
+            this.RB_SavePar.UseVisualStyleBackColor = true;
+            this.RB_SavePar.CheckedChanged += new System.EventHandler(this.RB_SavePar_CheckedChanged);
+            // 
+            // L_BaseTime
+            // 
+            this.L_BaseTime.AutoSize = true;
+            this.L_BaseTime.Location = new System.Drawing.Point(8, 44);
+            this.L_BaseTime.Name = "L_BaseTime";
+            this.L_BaseTime.Size = new System.Drawing.Size(54, 13);
+            this.L_BaseTime.TabIndex = 103;
+            this.L_BaseTime.Text = "BaseTime";
+            this.L_BaseTime.Visible = false;
             // 
             // TP_Capture
             // 
@@ -1003,7 +1022,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(133, 66);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(19, 13);
+            this.label8.Size = new System.Drawing.Size(16, 13);
             this.label8.TabIndex = 61;
             this.label8.Text = "★";
             // 
@@ -1392,6 +1411,31 @@
             this.HA.Text = "Hidden Ability";
             this.HA.UseVisualStyleBackColor = true;
             // 
+            // BaseTimeText
+            // 
+            this.BaseTimeText.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BaseTimeText.Location = new System.Drawing.Point(92, 41);
+            this.BaseTimeText.Mask = "AAAAAAAA";
+            this.BaseTimeText.Name = "BaseTimeText";
+            this.BaseTimeText.Size = new System.Drawing.Size(67, 23);
+            this.BaseTimeText.TabIndex = 118;
+            this.BaseTimeText.Text = "00000000";
+            this.BaseTimeText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.BaseTimeText.Value = ((uint)(0u));
+            this.BaseTimeText.Visible = false;
+            // 
+            // CurrentText
+            // 
+            this.CurrentText.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurrentText.Location = new System.Drawing.Point(92, 9);
+            this.CurrentText.Mask = "AAAAAAAA";
+            this.CurrentText.Name = "CurrentText";
+            this.CurrentText.Size = new System.Drawing.Size(67, 23);
+            this.CurrentText.TabIndex = 117;
+            this.CurrentText.Text = "00000000";
+            this.CurrentText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.CurrentText.Value = ((uint)(0u));
+            // 
             // Slot
             // 
             this.Slot.BlankText = null;
@@ -1415,6 +1459,18 @@
             this.Slot.Name = "Slot";
             this.Slot.Size = new System.Drawing.Size(100, 21);
             this.Slot.TabIndex = 93;
+            // 
+            // Seed
+            // 
+            this.Seed.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Seed.Location = new System.Drawing.Point(127, 66);
+            this.Seed.Mask = "AAAAAAAA";
+            this.Seed.Name = "Seed";
+            this.Seed.Size = new System.Drawing.Size(67, 23);
+            this.Seed.TabIndex = 1;
+            this.Seed.Text = "00000000";
+            this.Seed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Seed.Value = ((uint)(0u));
             // 
             // MiscRNGTool
             // 
@@ -1482,7 +1538,6 @@
         private System.Windows.Forms.NumericUpDown NPC;
         private System.Windows.Forms.Button B_Calc;
         private System.Windows.Forms.Label L_CurrentSeed;
-        private System.Windows.Forms.TextBox CurrentText;
         private System.Windows.Forms.RadioButton RB_Pokerus;
         private System.Windows.Forms.RadioButton RB_Random;
         private System.Windows.Forms.ComboBox Compare;
@@ -1568,5 +1623,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv_time;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv_npcstatus;
         private System.Windows.Forms.CheckBox TTT;
+        private System.Windows.Forms.RadioButton RB_SavePar;
+        private System.Windows.Forms.Label L_BaseTime;
+        private System.Windows.Forms.Label L_TargetSeed;
+        private Controls.HexMaskedTextBox BaseTimeText;
+        private Controls.HexMaskedTextBox CurrentText;
     }
 }

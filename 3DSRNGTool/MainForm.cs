@@ -2006,28 +2006,8 @@ namespace Pk3DSRNGTool
 
         private void seedsearchCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (seedsearchCheckBox.Checked == true)
-            {
-                patternCheckBox.Visible = Pattern.Visible = true;
-                maxseedsLabel.Visible = MaxSeeds.Visible = true;
-            }
-            else
-            {
-                patternCheckBox.Visible = Pattern.Visible = false;
-                maxseedsLabel.Visible = MaxSeeds.Visible = false;
-            }
-        }
-
-        private void patternCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (patternCheckBox.Checked == true)
-            {
-                Pattern.Enabled = true;
-            }
-            else
-            {
-                Pattern.Enabled = false;
-            }
+            maxseedsLabel.Visible = MaxSeeds.Visible = seedsearchCheckBox.Checked;
+            DisableFilters.Enabled = !seedsearchCheckBox.Checked;
         }
     }
 }

@@ -111,6 +111,7 @@ namespace Pk3DSRNGTool
                 Value = (int)Value.Value,
                 FacilityFilter = getFacilityFilter,
                 TrainerFilter = getTrainerFilter,
+                BaseTime = BaseTimeText,
             };
         }
         private FPFacility getFacilityFilter => Filters.SelectedTab != TP_FP ? null : new FPFacility
@@ -533,6 +534,7 @@ namespace Pk3DSRNGTool
             }
             RB_Random.Checked = true;
             RB_Pokerus.Visible = (RNG.SelectedIndex & 1) == 0;
+            RB_SavePar.Visible = RNG.SelectedIndex == 2;
             NPC.Visible = L_NPC.Visible = RNG.SelectedIndex == 0;
             ShowHideTab(TP_Timeline, RNG.SelectedIndex == 0, 0);
             Fidget.Enabled = Raining.Enabled = Boy.Enabled = Girl.Enabled = JumpFrame.Enabled = CreateTimeline.Checked;
@@ -574,6 +576,7 @@ namespace Pk3DSRNGTool
             if (Filters.SelectedTab == TP_Misc)
             {
                 CurrentText.Text = string.Empty;
+                BaseTimeText.Text = string.Empty;
                 Compare.SelectedIndex = -1;
                 Value.Value = Range.Value = 100;
                 RB_Random.Checked = true;
@@ -660,5 +663,11 @@ namespace Pk3DSRNGTool
             new ComboItem("Green >1/2", 1),
         };
         #endregion
+
+        private void RB_SavePar_CheckedChanged(object sender, EventArgs e)
+        {
+            BaseTimeText.Visible = L_BaseTime.Visible = L_TargetSeed.Visible = RB_SavePar.Checked;
+            L_CurrentSeed.Visible = !RB_SavePar.Checked;
+        }
     }
 }

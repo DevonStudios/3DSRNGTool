@@ -33,61 +33,44 @@ namespace Pk3DSRNGTool
             int counter = 0;
             int min = (int)Frame_min.Value;
             int max = (int)Frame_max.Value;
-            bool patternmatch = false;
 
             while (counter <= int.Parse(MaxSeeds.Text))
             {
                 var rng = new MersenneTwister(Seed.Value);
-                string seedpattern = Seed.Value.ToString().Substring(Seed.Value.ToString().Length - 2, 2);
-                if (patternCheckBox.Checked == false || (seedpattern == Pattern.Text.Substring(0, 2) || seedpattern == Pattern.Text.Substring(3, 2)
-                    || seedpattern == Pattern.Text.Substring(5, 2)))
+                if (AroundTarget.Checked)
                 {
-                    patternmatch = true;
+                    min = (int)TargetFrame.Value - 100;
+                    max = (int)TargetFrame.Value + 100;
                 }
-                else
+                // Advance
+                for (int i = 0; i < min; i++)
+                    rng.Next();
+                // Prepare
+                getsetting(rng);
+                // Start
+                for (int i = min; i <= max; i++, RNGPool.AddNext(rng))
                 {
-                    patternmatch = false;
-                }
-                if (seedsearchCheckBox.Checked == false || patternmatch == true)
-                {
-                    if (AroundTarget.Checked)
+                    RNGResult result = RNGPool.Generate6();
+                    if (!filter.CheckResult(result))
+                        continue;
+                    Frames.Add(new Frame(result, frame: i, time: i - min));
+                    // found init seed+spread
+                    if (seedsearchCheckBox.Checked == true && Frames.Count >= 1)
                     {
-                        min = (int)TargetFrame.Value - 100;
-                        max = (int)TargetFrame.Value + 100;
+                        counter = int.Parse(MaxSeeds.Text) + 1;
+                        break;
                     }
-                    // Advance
-                    for (int i = 0; i < min; i++)
-                        rng.Next();
-                    // Prepare
-                    getsetting(rng);
-                    // Start
-                    for (int i = min; i <= max; i++, RNGPool.AddNext(rng))
+                    //normal search
+                    else if (Frames.Count > MAX_RESULTS_NUM)
                     {
-                        RNGResult result = RNGPool.Generate6();
-                        if (!filter.CheckResult(result))
-                            continue;
-                        Frames.Add(new Frame(result, frame: i, time: i - min));
-                        // found init seed+spread
-                        if (seedsearchCheckBox.Checked == true && Frames.Count >= 1)
-                        {
-                            counter = int.Parse(MaxSeeds.Text);
-                            break;
-                        }
-                        //normal search
-                        else
-                        {
-                            if (Frames.Count > MAX_RESULTS_NUM)
-                            {
-                                break;
-                            }
-                        }
+                        break;
                     }
                 }
                 if (seedsearchCheckBox.Checked == false)
                 {
                     counter = int.Parse(MaxSeeds.Text) + 1;
                 }
-                else if (counter != int.Parse(MaxSeeds.Text))
+                else if (counter != int.Parse(MaxSeeds.Text) + 1)
                 {
                     Seed.Value++;
                 }

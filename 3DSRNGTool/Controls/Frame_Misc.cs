@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using Pk3DSRNGTool.Core;
+using System.Windows.Forms;
+using System.Globalization;
 
 namespace Pk3DSRNGTool
 {
@@ -34,7 +36,7 @@ namespace Pk3DSRNGTool
         public byte Clock => (byte)(Rand64 % 17);
 
         public PRNGState st;
-
+        
         public int[] status;
         public string NPCStatus => status == null ? string.Empty : string.Join(",", status.Select(i => (i > 0 ? i - 1 : i).ToString().PadLeft(2)).ToArray());
     }
@@ -54,11 +56,26 @@ namespace Pk3DSRNGTool
         public string CurrentSeed;
         public FPFacility FacilityFilter;
         public BTTrainer TrainerFilter;
+        public MaskedTextBox BaseTime;
 
         public bool check(Frame_Misc f)
         {
             if (Pokerus && f.Pokerus == 0)
                 return false;
+            if (BaseTime.Visible && (CurrentSeed != null && BaseTime.Text != ""))
+            {
+                string sum = (f.Rand32 + ulong.Parse(BaseTime.Text, NumberStyles.HexNumber)).ToString();
+                string currentSeedDec = ulong.Parse(CurrentSeed, NumberStyles.HexNumber).ToString();
+                if (sum.Length >= 2 && currentSeedDec.Length >= 2
+                    && sum.Substring(sum.Length - 2) == currentSeedDec.Substring(currentSeedDec.Length - 2))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
             if (CurrentSeed != null && !System.Text.RegularExpressions.Regex.IsMatch(f.CurrentSeed, CurrentSeed))
                 return false;
             if (Random)
