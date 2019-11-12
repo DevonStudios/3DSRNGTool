@@ -64,7 +64,7 @@ namespace Pk3DSRNGTool
                 return false;
             if (BaseTime.Visible && (CurrentSeed != null && BaseTime.Text != ""))
             {
-                string sum = (f.Rand32 + ulong.Parse(BaseTime.Text, NumberStyles.HexNumber)).ToString();
+                string sum = ((f.Rand32 + ulong.Parse(BaseTime.Text, NumberStyles.HexNumber)) & 0xFFFFFFFF).ToString();
                 string currentSeedDec = ulong.Parse(CurrentSeed, NumberStyles.HexNumber).ToString();
                 if (sum.Length >= 2 && currentSeedDec.Length >= 2
                     && sum.Substring(sum.Length - 2) == currentSeedDec.Substring(currentSeedDec.Length - 2))
