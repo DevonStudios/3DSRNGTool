@@ -47,6 +47,7 @@
             this.NPC = new System.Windows.Forms.NumericUpDown();
             this.StartingFrame = new System.Windows.Forms.NumericUpDown();
             this.L_StartingFrame = new System.Windows.Forms.Label();
+            this.Seed = new Pk3DSRNGTool.Controls.HexMaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.L_RNG = new System.Windows.Forms.Label();
             this.RNG = new System.Windows.Forms.ComboBox();
@@ -85,6 +86,8 @@
             this.Fidget = new System.Windows.Forms.CheckBox();
             this.JumpFrame = new System.Windows.Forms.NumericUpDown();
             this.TP_Misc = new System.Windows.Forms.TabPage();
+            this.BaseTimeText = new Pk3DSRNGTool.Controls.HexMaskedTextBox();
+            this.CurrentText = new Pk3DSRNGTool.Controls.HexMaskedTextBox();
             this.L_TargetSeed = new System.Windows.Forms.Label();
             this.RB_SavePar = new System.Windows.Forms.RadioButton();
             this.L_BaseTime = new System.Windows.Forms.Label();
@@ -140,10 +143,7 @@
             this.Sync = new System.Windows.Forms.CheckBox();
             this.L_Slot = new System.Windows.Forms.Label();
             this.HA = new System.Windows.Forms.CheckBox();
-            this.BaseTimeText = new Pk3DSRNGTool.Controls.HexMaskedTextBox();
-            this.CurrentText = new Pk3DSRNGTool.Controls.HexMaskedTextBox();
             this.Slot = new Pk3DSRNGTool.Controls.CheckBoxComboBox();
-            this.Seed = new Pk3DSRNGTool.Controls.HexMaskedTextBox();
             this.RNGInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Delay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxResults)).BeginInit();
@@ -268,6 +268,18 @@
             this.L_StartingFrame.Size = new System.Drawing.Size(75, 13);
             this.L_StartingFrame.TabIndex = 3;
             this.L_StartingFrame.Text = "Starting Frame";
+            // 
+            // Seed
+            // 
+            this.Seed.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Seed.Location = new System.Drawing.Point(127, 66);
+            this.Seed.Mask = "AAAAAAAA";
+            this.Seed.Name = "Seed";
+            this.Seed.Size = new System.Drawing.Size(67, 23);
+            this.Seed.TabIndex = 1;
+            this.Seed.Text = "00000000";
+            this.Seed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Seed.Value = ((uint)(0u));
             // 
             // label2
             // 
@@ -717,6 +729,31 @@
             this.TP_Misc.TabIndex = 0;
             this.TP_Misc.Text = "Misc";
             this.TP_Misc.UseVisualStyleBackColor = true;
+            // 
+            // BaseTimeText
+            // 
+            this.BaseTimeText.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BaseTimeText.Location = new System.Drawing.Point(92, 41);
+            this.BaseTimeText.Mask = "AAAAAAAA";
+            this.BaseTimeText.Name = "BaseTimeText";
+            this.BaseTimeText.Size = new System.Drawing.Size(67, 23);
+            this.BaseTimeText.TabIndex = 118;
+            this.BaseTimeText.Text = "00000000";
+            this.BaseTimeText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.BaseTimeText.Value = ((uint)(0u));
+            this.BaseTimeText.Visible = false;
+            // 
+            // CurrentText
+            // 
+            this.CurrentText.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurrentText.Location = new System.Drawing.Point(92, 9);
+            this.CurrentText.Mask = "AAAAAAAA";
+            this.CurrentText.Name = "CurrentText";
+            this.CurrentText.Size = new System.Drawing.Size(67, 23);
+            this.CurrentText.TabIndex = 117;
+            this.CurrentText.Text = "00000000";
+            this.CurrentText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.CurrentText.Value = ((uint)(0u));
             // 
             // L_TargetSeed
             // 
@@ -1411,31 +1448,6 @@
             this.HA.Text = "Hidden Ability";
             this.HA.UseVisualStyleBackColor = true;
             // 
-            // BaseTimeText
-            // 
-            this.BaseTimeText.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BaseTimeText.Location = new System.Drawing.Point(92, 41);
-            this.BaseTimeText.Mask = "AAAAAAAA";
-            this.BaseTimeText.Name = "BaseTimeText";
-            this.BaseTimeText.Size = new System.Drawing.Size(67, 23);
-            this.BaseTimeText.TabIndex = 118;
-            this.BaseTimeText.Text = "00000000";
-            this.BaseTimeText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.BaseTimeText.Value = ((uint)(0u));
-            this.BaseTimeText.Visible = false;
-            // 
-            // CurrentText
-            // 
-            this.CurrentText.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CurrentText.Location = new System.Drawing.Point(92, 9);
-            this.CurrentText.Mask = "AAAAAAAA";
-            this.CurrentText.Name = "CurrentText";
-            this.CurrentText.Size = new System.Drawing.Size(67, 23);
-            this.CurrentText.TabIndex = 117;
-            this.CurrentText.Text = "00000000";
-            this.CurrentText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.CurrentText.Value = ((uint)(0u));
-            // 
             // Slot
             // 
             this.Slot.BlankText = null;
@@ -1460,18 +1472,6 @@
             this.Slot.Size = new System.Drawing.Size(100, 21);
             this.Slot.TabIndex = 93;
             // 
-            // Seed
-            // 
-            this.Seed.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Seed.Location = new System.Drawing.Point(127, 66);
-            this.Seed.Mask = "AAAAAAAA";
-            this.Seed.Name = "Seed";
-            this.Seed.Size = new System.Drawing.Size(67, 23);
-            this.Seed.TabIndex = 1;
-            this.Seed.Text = "00000000";
-            this.Seed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.Seed.Value = ((uint)(0u));
-            // 
             // MiscRNGTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1485,6 +1485,7 @@
             this.Name = "MiscRNGTool";
             this.Text = "MiscRNGTool";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MiscRNGTool_FormClosing);
+            this.Load += new System.EventHandler(this.MiscRNGTool_Load);
             this.RNGInfo.ResumeLayout(false);
             this.RNGInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Delay)).EndInit();

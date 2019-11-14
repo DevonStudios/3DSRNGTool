@@ -669,5 +669,13 @@ namespace Pk3DSRNGTool
             BaseTimeText.Visible = L_BaseTime.Visible = L_TargetSeed.Visible = RB_SavePar.Checked;
             L_CurrentSeed.Visible = !RB_SavePar.Checked;
         }
+
+        private void MiscRNGTool_Load(object sender, EventArgs e)
+        {
+            if (CurrentText.Text == "00000000")
+            {
+                CurrentText.Text = string.Empty;
+            }
+        }
     }
 }
