@@ -391,10 +391,15 @@ namespace Pk3DSRNGTool
         private void Search6()
         {
             MersenneTwister MT = new MersenneTwister(Seed.Value);
+            if (XY.Visible == true && XY.Checked == true && StartingFrame.Value < 25)
+                StartingFrame.Value = 24;
+            else if (ORAS.Visible == true && ORAS.Checked == true && StartingFrame.Value < 27)
+                StartingFrame.Value = 26;
             int frame = (int)StartingFrame.Value;
             int loopcount = (int)MaxResults.Value;
             int delay = (int)Delay.Value;
             ulong N = (ulong)Range.Value;
+            int savepar_offset = 0;
 
             for (int i = 0; i < frame; i++)
                 MT.Next();
@@ -415,6 +420,12 @@ namespace Pk3DSRNGTool
                     f.RandN = (int)((RNGPool.getrand * N) >> 32);
                 else if (filter.Pokerus)
                     f.Pokerus = Pokerus6.getStrain();
+                else
+                    if (XY.Checked == true)
+                        savepar_offset = 25;
+                    else
+                        savepar_offset = 27;
+                    f.Frame = frame - savepar_offset;
 
                 if (!filter.check(f))
                     continue;
@@ -666,7 +677,7 @@ namespace Pk3DSRNGTool
 
         private void RB_SavePar_CheckedChanged(object sender, EventArgs e)
         {
-            BaseTimeText.Visible = L_BaseTime.Visible = L_TargetSeed.Visible = RB_SavePar.Checked;
+            BaseTimeText.Visible = L_BaseTime.Visible = L_TargetSeed.Visible = XY.Visible = ORAS.Visible = RB_SavePar.Checked;
             L_CurrentSeed.Visible = !RB_SavePar.Checked;
 
             if (BaseTimeText.Visible && BaseTimeText.Text == "00000000")
@@ -681,6 +692,16 @@ namespace Pk3DSRNGTool
             {
                 CurrentText.Text = string.Empty;
             }
+        }
+
+        private void ORAS_CheckedChanged(object sender, EventArgs e)
+        {
+            XY.Checked = !ORAS.Checked;
+        }
+
+        private void XY_CheckedChanged(object sender, EventArgs e)
+        {
+            ORAS.Checked = !XY.Checked;
         }
     }
 }
